@@ -21,7 +21,7 @@ README.md is an automatic translation of README_ja.md.
 				*.xlsx - Words Excel
 				*.jpg, *.png, etc. - Images
 
-			work/
+			work/ - Manual adjustment directory
 				*.svg - SVG for manual adjustment
 
 			output/ - Product output directory
@@ -35,17 +35,23 @@ README.md is an automatic translation of README_ja.md.
 1. Generate project directory (ex: Planets)  
 By the following command:  
 ```stampede $ bin/create_project.php Planets```  
-Source file directory ```stampede/projects/Planets/input/```, Product output directory ```stampede/projects/Planets/output/``` and Auto-generated Makefile ```stampede/projects/Planets/Makefile``` is generated.
+Source file directory ```stampede/projects/Planets/input/```, Manual adjustment directory ```stampede/projects/Planets/work/```, Product output directory ```stampede/projects/Planets/output/``` and Auto-generated Makefile ```stampede/projects/Planets/Makefile``` is generated.
 
 1. Installation of source files  
-Set up Page configuration file, Configuration file, Template SVG, Words Excel, Image in ```stampede / projects / Planets / input```.
+Set up Page configuration file, Configuration file, Template SVG, Words Excel, Image in ```stampede/projects/Planets/input```.
 
 1. Running Make  
 By the following command:  
+```stampede $ cd projects/Planets```  
 ```stampede/projects/Planets $ make```  
-
  1. If there is an update in the Page configuration file, the Auto-generated Makefile is regenerated.
  1. If there is an update in the Auto-generated Makefile, Configuration file, Template SVG, Words Excel or Dependent files, the Auto-generated SVG is regenerated.
  1. If there is an update in the Auto-generated SVG, the SVG for manual adjustment is regenerated.
  1. If there is an update in the SVG for manual adjustment, the Auto-generated PDF is regenerated.
  1. If there is an update in the Auto-generated PDF, the Multiple page PDF is regenerated.
+
+1. Automatic execution  
+By the following command:  
+```stampede $ cd projects/Planets```  
+```stampede/projects/Planets $ ./daemon.sh```  
+Update of the source file directory is monitored, and make is automatically executed.
