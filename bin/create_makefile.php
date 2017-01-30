@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-require_once '../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 $objPExcel = PHPExcel_IOFactory::load('input/index.xlsx');
 $entities = $objPExcel->getActiveSheet()->toArray(NULL, TRUE, TRUE, TRUE);
